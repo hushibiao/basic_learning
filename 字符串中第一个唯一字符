@@ -1,0 +1,13 @@
+int firstUniqChar(string s) {
+        unordered_map<int, int> frequency;      //建立存储key值对应关系的容器frequency
+        for (char& ch: s) {                      //第一次遍历，求字符出现频率
+            ++frequency[ch];
+        }
+        for (int i = 0; i < s.size(); ++i) {    //第二次遍历，对比字符串中的字符出现的频率，为1则返回该字符下标
+            if (frequency[s[i]] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
